@@ -1,5 +1,5 @@
+import '../../scss/base.scss';
 import styles from './button.module.scss';
-
 interface Props {
     /**
      * Is this the principal call to action on the page?
@@ -34,19 +34,19 @@ export const Button = ({
     ...props
 }: Props) => {
 
-    const mode = primary ? styles.primary : styles.secondary;
+    const mode = primary ? 'bg-gray-900' : 'bg-gray-400';
 
     const fontSize =
         size === 'small'
-            ? styles.small
+            ? 'text-sm'
             : size === 'medium'
-            ? styles.medium
-            : styles.large;
+            ? 'text-base'
+            : 'text-lg';
 
     return (
         <button
             type='button'
-            className={[styles.button, fontSize, mode].join(' ')}
+            className={['text-white', 'px-2 py-2', 'rounded-lg', styles.button, fontSize, mode].join(' ')}
             style={{ backgroundColor }}
             {...props}
         >
